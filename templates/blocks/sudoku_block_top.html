@@ -1,0 +1,23 @@
+<form method=post action="/modules/sudoku/index.php" target="_blank">
+	<p><{$block.lang_qtte}>&nbsp;
+			<select name=qtte size=1>
+				<option value=1 <{$block.qtte_selected_1}>>1</option>
+				<option value=2 <{$block.qtte_selected_2}>>2</option>
+				<option value=4 <{$block.qtte_selected_4}>>4</option>
+				<option value=9 <{$block.qtte_selected_9}>>9</option>
+			</select>
+	</p>
+	<p><{$block.lang_niveau}>&nbsp; 
+			<select name=niveau size=1>
+				<option value=16 <{$block.selected_16}> > <{$block.lang_facile}> </option>
+				<option value=11 <{$block.selected_11}> > <{$block.lang_moyen}> </option>
+				<option value=6 <{$block.selected_6}> > <{$block.lang_difficile}> </option>
+				<option value=0 <{$block.selected_0}> > <{$block.lang_tres_difficile}> </option>
+			</select>
+	</p>
+	<p><{$block.lang_hypotheses}>&nbsp;<input type=checkbox name=hypotheses value=1 checked></p>
+	<p align=right>
+			<input type=hidden name=op value=print>
+			<input type=submit name=imprimer value="<{$block.lang_imprimer}>" >
+	</p>
+</form>

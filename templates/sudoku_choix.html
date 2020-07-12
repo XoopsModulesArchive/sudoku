@@ -1,0 +1,42 @@
+<form method=post>
+<table>
+	<tr>
+		<th colspan=2><{$lang_title}></th>
+	</tr>
+	<tr>
+		<td align=left width=20%><{$lang_qtte}></td><td align=left>
+			<select name=qtte size=1>
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=4>4</option>
+				<option value=9>9</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align=left width=20%><{$lang_niveau}></td><td align=left>
+			<select name=niveau size=1>
+				<option value=16 <{$selected_16}> > <{$lang_facile}> </option>
+				<option value=11 <{$selected_11}> > <{$lang_moyen}> </option>
+				<option value=6 <{$selected_6}> > <{$lang_difficile}> </option>
+				<option value=0 <{$selected_0}> > <{$lang_tres_difficile}> </option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align=left width=20%><{$lang_hypotheses}></td><td align=left>
+			<input type=checkbox name=hypotheses value=1 checked>
+		</td>
+	</tr>
+	<tr>
+		<td colsapn=2>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan=2>
+		<input type=hidden name=op value=play>
+		<input type=submit name=generer value=<{$lang_generer}>> &nbsp;
+		<input type=button name=annuler value=<{$lang_annuler}> onclick="javascript:history.go(-1)">
+		</td>
+	</tr>
+</table>
+</form>

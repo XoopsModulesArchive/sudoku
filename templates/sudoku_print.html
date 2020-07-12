@@ -1,0 +1,37 @@
+<html>
+<body>
+<h1><{$lang_title}></h1>
+<table cellspacing=5 width=0%>
+	<{foreach item=indice_y from=$liste_y}>
+		<tr>
+		<{foreach item=indice_x from=$liste_x}>
+			<td>
+				<table cellspacing=0 cellpadding=0>
+				<{foreach item=ligne from=$grilles[$indice_x][$indice_y]}>
+					<tr>
+						<{foreach item=case from=$ligne}>
+							<td align=center valign=middle 
+							style="border-left: solid 1px;border-top: solid 1px;width:30px;height:30px;
+								<{if $case.border eq 1 }> border-right: solid 3px; <{/if}>
+								<{if $case.borderbottom eq 1 }> border-bottom: solid 3px; <{/if}>
+							" >
+								<{if $case.value neq ""}>
+									<strong><{$case.value}></strong>
+								<{else}>
+									&nbsp;
+								<{/if}>
+							</td>
+						<{/foreach}>
+					</tr>
+				<{/foreach}>
+				</table>
+			</td>
+		<{/foreach}>
+		</tr>
+	<{/foreach}>
+</table>
+<script language=javascript>
+window.print();
+</script>
+</body>
+</html>

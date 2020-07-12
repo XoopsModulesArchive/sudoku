@@ -1,0 +1,47 @@
+<form method=post>
+<table cellspacing=5>
+	<tr>
+		<th colspan=<{$x}>><{$lang_title}></th>
+	</tr>
+	<{foreach item=indice_y from=$liste_y}>
+		<tr>
+		<{foreach item=indice_x from=$liste_x}>
+			<td>
+				<table cellspacing=0 cellpadding=0 style="width:0;">
+				<{foreach item=ligne from=$grilles[$indice_x][$indice_y]}>
+					<tr>
+						<{foreach item=case from=$ligne}>
+							<td align=center valign=middle 
+							style="text-align: center; vertical-align:middle; border-left: solid 1px;border-top: solid 1px;width:30px;height:30px;
+								<{if $case.border eq 1 }> border-right: solid 3px; <{/if}>
+								<{if $case.borderbottom eq 1 }> border-bottom: solid 3px; <{/if}>
+							" >
+								<{if $case.value neq ""}>
+									<strong>&nbsp;<{$case.value}>&nbsp;</strong>
+									<input type=hidden name=sudoku[<{$indice_x}>][<{$indice_y}>][<{$case.indice}>]
+											value=<{$case.value}>>
+								<{else}>
+									<input type=text size=2 maxlength=1 style="text-align:center; border:none;" 
+											name=sudoku[<{$indice_x}>][<{$indice_y}>][<{$case.indice}>] >
+								<{/if}>
+							</td>
+						<{/foreach}>
+					</tr>
+				<{/foreach}>
+				</table>
+			</td>
+		<{/foreach}>
+		</tr>
+	<{/foreach}>
+	<tr>
+		<td colspan=<{$x}>>
+		<input type=hidden name=niveau value=<{$niveau}>>
+		<input type=hidden name=qtte value=<{$qtte}>>
+		<input type=hidden name=op value=validate>
+		<input type=submit name=generer value=<{$lang_valider}>> &nbsp;
+		<input type=reset name=reinit value=<{$lang_zero}>> &nbsp;
+		<input type=button name=annuler value=<{$lang_annuler}> onclick="javascript:history.go(-1)">
+		</td>
+	</tr>
+</table>
+</form>

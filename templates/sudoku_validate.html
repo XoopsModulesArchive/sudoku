@@ -1,0 +1,22 @@
+<form method=post>
+<table cellspacing=5 style="border: solid 1px;">
+	<tr>
+		<th colspan=<{$x}>><{$lang_title}></th>
+	</tr>
+	<{foreach item=indice_y from=$liste_y}>
+		<tr>
+		<{foreach item=indice_x from=$liste_x}>
+			<td>
+				<strong><{$validate[$indice_x][$indice_y]}></strong>
+			</td>
+		<{/foreach}>
+		</tr>
+	<{/foreach}>
+	<tr>
+		<td colspan=<{$x}>>
+		<input type=submit name=generer value=<{$lang_valider}>> &nbsp;
+		<input type=button name=annuler value=<{$lang_annuler}> onclick="javascript:history.go(-1)">
+		</td>
+	</tr>
+</table>
+</form>
